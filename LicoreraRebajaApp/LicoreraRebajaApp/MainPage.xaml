@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:LicoreraRebajaApp.Views.Components"
+             mc:Ignorable="d"
+             x:Class="LicoreraRebajaApp.MainPage">
+
+    <ContentPage.Resources>
+
+        <Style x:Key="errorLabel" TargetType="Label">
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="TextColor" Value="Red"/>
+        </Style>
+        <Style TargetType="ContentPage">
+            <Setter Property="BackgroundColor" Value="#FFFFFF"/>
+        </Style>
+
+        <Style TargetType="local:LoginEntry">
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10,10,10,0"/>
+        </Style>
+
+        <Style TargetType="local:LoginButton">
+            <Setter Property="Margin" Value="20,40,20,0"/>
+        </Style>
+
+        <Style TargetType="Image">
+            <Setter Property="Margin" Value="0,0,0,40"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <FlexLayout Direction="Column"
+                JustifyContent="Center"
+                HorizontalOptions="FillAndExpand">
+
+        <Image Source="{local:ImageResource LicoreraRebajaApp.logojaveriana.png}" />
+        <local:LoginEntry Placeholder="Usuario" Text="{Binding UserName}"></local:LoginEntry>
+        <local:LoginEntry Placeholder="Password" Text="{Binding Password}"></local:LoginEntry>
+        <local:LoginButton Text="Entrar" Command="{Binding LoginCommand}"></local:LoginButton>
+        <Label Style="{StaticResource errorLabel}" IsVisible="{Binding MensajeError.HasError}" Text="{Binding MensajeError.Message}"/>
+
+    </FlexLayout>
+
+</ContentPage>
+
+    
